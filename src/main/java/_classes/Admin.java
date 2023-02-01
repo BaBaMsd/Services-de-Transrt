@@ -1,27 +1,26 @@
 package _classes;
 
-
+//classe_admin_avec_password_par_defaut
 public class Admin {
-	private String logindf="admin";
-	private String passdf="admin";
+	private static String logindf="admin";
+	private static String passdf="admin";
 	
 	
 	public Admin(java.lang.String logindf, java.lang.String passdf) {
-		super();
-		this.logindf = logindf;
-		this.passdf = passdf;
+		Admin.logindf = logindf;
+		Admin.passdf = passdf;
 	}
-	public String getLogindf() {
+	public static String getLogindf() {
 		return logindf;
 	}
 	public void setLogindf(String logindf) {
-		this.logindf = logindf;
+		Admin.logindf = logindf;
 	}
-	public String getPassdf() {
+	public static String getPassdf() {
 		return passdf;
 	}
-	public void setPassdf(String passdf) {
-		this.passdf = passdf;
+	public static void setPassdf(String passdf) {
+		Admin.passdf = passdf;
 	}
 	
 	public boolean verifierAdmin(String login, String password) {
