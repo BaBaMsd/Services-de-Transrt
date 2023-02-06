@@ -40,10 +40,6 @@
     <servlet-name>Acceil</servlet-name>
     <url-pattern>/Con</url-pattern>
   </servlet-mapping>
-  
-  
-  <!--  _admin filter  -->
-  
   <filter>
     <display-name>_Adminfilter</display-name>
     <filter-name>_Adminfilter</filter-name>
@@ -52,5 +48,14 @@
   <filter-mapping>
     <filter-name>_Adminfilter</filter-name>
     <url-pattern>/projet2022/admin/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>_Respofilter</display-name>
+    <filter-name>_Respofilter</filter-name>
+    <filter-class>filters.Respofilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>_Respofilter</filter-name>
+    <url-pattern>/projet2022/respo/*</url-pattern>
   </filter-mapping>
 </web-app>

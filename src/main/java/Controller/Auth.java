@@ -1,10 +1,17 @@
 package Controller;
 
 
+
+
 //_authentification_admin
 
 
-import _classes.Admin;
+import _classes.*;
+
+import java.util.ArrayList;
+
+
+import SR.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.ws.rs.Path;
@@ -19,9 +26,29 @@ public class Auth {
 	@Context HttpServletRequest req;
 	
 	//Sevice_controle_connexion
+	Responsable R = new Responsable();
+	
+	serviceRespo rs = new serviceRespo();
+	
+	
+	 private int verifierespo( String login,String password){
+		  ArrayList<Responsable> listRespo = rs.verifrespo();
+		   for(int i=0;i< (int)listRespo.size();i++){
+			if(login.equals((String) listRespo.get(i).getLogin()) && password.equals((String) listRespo.get(i).getPassword() ) ){
+				System.out.println(i+1);
+				System.out.println("Oui");
+				return i+1;
+			}
+		}
+		System.out.println("Non");
+		return -1;
+	}
+	   
+	
+	
 	
 	@POST
-	@Path("/login")
+	@Path("/auth")
 	public String login(@QueryParam("login") String login,@QueryParam("password") String password) {
 		
 		HttpSession session = req.getSession();
@@ -29,8 +56,13 @@ public class Auth {
 			session.setAttribute("adminSession",login);
 			return "HEllo Admin";
 		}
+		else if(verifierespo(login,password)>=0){	
+			session.setAttribute("responsableSession",login);
+            return "Hello Responsable  : "+login;
+			
+		}
 		else {
-			return "Vous n'etes pas admin";
+			return "Vous n'etes pas admin ni Responsable";
 		}
 				
 		

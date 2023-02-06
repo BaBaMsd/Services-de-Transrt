@@ -4,6 +4,7 @@ package Controller;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.*;
 
 import java.util.List;
 
@@ -33,9 +34,15 @@ public class AdminControler {
     
     //Liste_Les_responsables
     @GET
-	@Path("/respo")
+	@Path("/Respos")
 	public List<Responsable>getResponsables(){
 		return serviceRespo.getResponsables();
+	}
+    
+    @GET
+	@Path("/Respo")
+	public Responsable getResponsable(@QueryParam("id") long id){
+		return serviceRespo.getRespo(id);
 	}
     
     //ajouter_un_respo
@@ -45,6 +52,21 @@ public class AdminControler {
     	serviceRespo.addResponsable(R);
     	return R; 	
     }
+    
+    //Modifier_un_responsable
+    @POST
+    @Path("/modifRespo")
+    public Responsable modiRespo(Responsable R) {
+    	serviceRespo.updateRespo(R);
+    	return R; 	
+    }
+    
+    //Supprim_respo
+    @DELETE
+	@Path("/supRespo")
+	public Responsable supResponsable(@QueryParam("id") long id){
+		return serviceRespo.supRespo(id);
+	}
     
     
     
