@@ -19,7 +19,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>jersey-servlet</servlet-name>
-    <url-pattern>/projet2022/*</url-pattern>
+    <url-pattern>/prj23/*</url-pattern>
   </servlet-mapping>
   <filter>
     <display-name>LoginFilter</display-name>
@@ -47,7 +47,7 @@
   </filter>
   <filter-mapping>
     <filter-name>_Adminfilter</filter-name>
-    <url-pattern>/projet2022/admin/*</url-pattern>
+    <url-pattern>/prj23/admin/*</url-pattern>
   </filter-mapping>
   <filter>
     <display-name>_Respofilter</display-name>
@@ -56,6 +56,15 @@
   </filter>
   <filter-mapping>
     <filter-name>_Respofilter</filter-name>
-    <url-pattern>/projet2022/respo/*</url-pattern>
+    <url-pattern>/prj23/respo/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>ClientFilter</display-name>
+    <filter-name>ClientFilter</filter-name>
+    <filter-class>filters.ClientFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ClientFilter</filter-name>
+    <url-pattern>/prj23/cli/*</url-pattern>
   </filter-mapping>
 </web-app>

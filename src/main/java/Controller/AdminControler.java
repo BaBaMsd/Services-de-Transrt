@@ -8,9 +8,13 @@ import jakarta.ws.rs.*;
 
 import java.util.List;
 
+import SR.Servces_SrTransf;
 import SR.serviceRespo;
+import SR.servicesClients;
 import _classes.Admin;
+import _classes.Client;
 import _classes.Responsable;
+import _classes.ServiceTrensfer;
 import jakarta.ws.rs.QueryParam;
 
 import jakarta.ws.rs.Path;
@@ -68,10 +72,61 @@ public class AdminControler {
 		return serviceRespo.supRespo(id);
 	}
     
+    @GET
+	@Path("/client")
+	public List<Client>getClient(){
+		return servicesClients.getClis();
+	}
+    
+    @GET
+	@Path("/cli")
+	public Client getClient(@QueryParam("id") long id){
+		return servicesClients.getClient(id);
+	}
+    
+    @PUT
+    @Path("/nouveauclient")
+    public Client nouveauClient(Client C) {
+    	servicesClients.addClient(C);
+    	return C; 	
+    }
+    
+    @POST
+    @Path("/modifclient")
+    public Client modiClient(Client C) {
+    	servicesClients.updateClient(C);
+    	return C; 	
+    }
+    
+    @DELETE
+	@Path("/supclient")
+	public Client supClient(@QueryParam("id") long id){
+		return servicesClients.supClient(id);
+	}
     
     
     
+    @GET
+	@Path("/sr")
+	public List<ServiceTrensfer>getServices(){
+		return Servces_SrTransf.getServicetransfer();
+	}
+    
+    
+    @PUT
+    @Path("/nouvelleSR")
+    public ServiceTrensfer nouvelleDRt(ServiceTrensfer SR) {
+    	Servces_SrTransf.addResponsable(SR);
+    	return SR; 	
+    }
     
     
 
 }
+
+    
+    
+    
+    
+    
+  

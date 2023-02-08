@@ -32,7 +32,7 @@ public class serviceRespo {
 	
 	public static  Responsable addResponsable(Responsable R){
         R.setId(responsable.size()+1);
-	        responsable.put(R.getId(),R);
+	        responsable.put(R.getId(),R); 
 	        return R;
 	}
 	

@@ -3,13 +3,15 @@ package _classes;
 public class ServiceTrensfer {
 	private long id;
 	private String nom;
-	private Responsable respo ;
+	private Responsable responsable ;
 	
 	public ServiceTrensfer(long id, String nom, Responsable respo) {
-		super();
 		this.id = id;
 		this.nom = nom;
-		this.respo = respo;
+		this.responsable = respo;
+	}
+	public ServiceTrensfer() {
+		
 	}
 
 	public long getId() {
@@ -28,12 +30,12 @@ public class ServiceTrensfer {
 		this.nom = nom;
 	}
 
-	public Responsable getRespo() {
-		return respo;
+	public Responsable getResponsable() {
+		return responsable;
 	}
 
-	public void setRespo(Responsable respo) {
-		this.respo = respo;
+	public void setResponsable(Responsable respo) {
+		this.responsable = respo;
 	}
 	
 	

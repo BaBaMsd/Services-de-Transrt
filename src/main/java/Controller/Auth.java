@@ -30,6 +30,8 @@ public class Auth {
 	
 	serviceRespo rs = new serviceRespo();
 	
+	servicesClients sc = new servicesClients();
+	
 	
 	 private int verifierespo( String login,String password){
 		  ArrayList<Responsable> listRespo = rs.verifrespo();
@@ -43,7 +45,20 @@ public class Auth {
 		System.out.println("Non");
 		return -1;
 	}
-	   
+	 
+	 private int verifierclient( String login,String password){
+		 ArrayList<Client> listClient = sc.verifclient();
+		 for(int i=0;i< (int)listClient.size();i++){
+			 if(login.equals((String) listClient.get(i).getLogin()) && password.equals((String) listClient.get(i).getPassword() ) ){
+				 System.out.println(i+1);
+				 System.out.println("Oui");
+				 
+				 return i+1;
+			 }
+		 }
+		 System.out.println("Non");
+		 return -1;
+	}  
 	
 	
 	
@@ -61,11 +76,15 @@ public class Auth {
             return "Hello Responsable  : "+login;
 			
 		}
+		else if(verifierclient(login,password)>=0){ 
+			session.setAttribute("clientSession",login);
+			return "Hello Client : "+login;
+			}
+
 		else {
-			return "Vous n'etes pas admin ni Responsable";
+			return "Vous n'etes pas admin ni Responsable  ni client";
 		}
-				
-		
+					
 	}
 	
 	//Sevice_de_connexion

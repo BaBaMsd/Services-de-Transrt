@@ -20,6 +20,7 @@ public class Database {
 	}
 	
 	public static Map<Long, Client> getClient() {
+		client.put(1L, new Client(1,"Client1","medvall","ahmed","123400",12345678));
 		return client;
 	}
 	
