@@ -22,25 +22,6 @@
     <url-pattern>/prj23/*</url-pattern>
   </servlet-mapping>
   <filter>
-    <display-name>LoginFilter</display-name>
-    <filter-name>LoginFilter</filter-name>
-    <filter-class>filters.LoginFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>LoginFilter</filter-name>
-    <url-pattern>/Con</url-pattern>
-  </filter-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Acceil</display-name>
-    <servlet-name>Acceil</servlet-name>
-    <servlet-class>SR.Acceil</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Acceil</servlet-name>
-    <url-pattern>/Con</url-pattern>
-  </servlet-mapping>
-  <filter>
     <display-name>_Adminfilter</display-name>
     <filter-name>_Adminfilter</filter-name>
     <filter-class>filters.Adminfilter</filter-class>
@@ -56,7 +37,7 @@
   </filter>
   <filter-mapping>
     <filter-name>_Respofilter</filter-name>
-    <url-pattern>/prj23/respo/*</url-pattern>
+    <url-pattern>/prj23/reponsable/*</url-pattern>
   </filter-mapping>
   <filter>
     <display-name>ClientFilter</display-name>
@@ -67,4 +48,14 @@
     <filter-name>ClientFilter</filter-name>
     <url-pattern>/prj23/cli/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ts</display-name>
+    <servlet-name>ts</servlet-name>
+    <servlet-class>SR.ts</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ts</servlet-name>
+    <url-pattern>/ss</url-pattern>
+  </servlet-mapping>
 </web-app>

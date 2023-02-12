@@ -38,11 +38,9 @@ public class Auth {
 		   for(int i=0;i< (int)listRespo.size();i++){
 			if(login.equals((String) listRespo.get(i).getLogin()) && password.equals((String) listRespo.get(i).getPassword() ) ){
 				System.out.println(i+1);
-				System.out.println("Oui");
 				return i+1;
 			}
 		}
-		System.out.println("Non");
 		return -1;
 	}
 	 
@@ -79,7 +77,7 @@ public class Auth {
 		else if(verifierclient(login,password)>=0){ 
 			session.setAttribute("clientSession",login);
 			return "Hello Client : "+login;
-			}
+		}
 
 		else {
 			return "Vous n'etes pas admin ni Responsable  ni client";
@@ -87,15 +85,7 @@ public class Auth {
 					
 	}
 	
-	//Sevice_de_connexion
-	@GET
-	@Path("/logout")
-   
-    public String logout(){
-        HttpSession session = req.getSession();
-        session.invalidate();
-        return "logged out";
-    }
+	
 	
 	
 

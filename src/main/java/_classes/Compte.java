@@ -15,6 +15,12 @@ public class Compte {
 		this.client = client;
 	}
 	
+	
+	public Compte() {
+		
+	}
+
+
 	public long getId() {
 		return id;
 	}

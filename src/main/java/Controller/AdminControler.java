@@ -4,6 +4,8 @@ package Controller;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.PUT;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.ws.rs.*;
 
 import java.util.List;
@@ -16,7 +18,7 @@ import _classes.Client;
 import _classes.Responsable;
 import _classes.ServiceTrensfer;
 import jakarta.ws.rs.QueryParam;
-
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 
@@ -25,6 +27,8 @@ import jakarta.ws.rs.Produces;
 @Path("/admin")
 @Produces("application/json")
 public class AdminControler {
+	
+	@Context HttpServletRequest req;
 	
 	//Modifier_le_password d'Admin
     @PUT
@@ -36,6 +40,15 @@ public class AdminControler {
         return "password changed ";
     }
     
+  //Sevice_de_connexion
+  	@GET
+  	@Path("/deconect")
+     
+      public String logout(){
+          HttpSession session = req.getSession();
+          session.invalidate();
+          return "Admin Déconnecté";
+      }
     //Liste_Les_responsables
     @GET
 	@Path("/Respos")
@@ -50,7 +63,7 @@ public class AdminControler {
 	}
     
     //ajouter_un_respo
-    @PUT
+    @PUT 
     @Path("/nouveauRespo")
     public Responsable nouveauRespo(Responsable R) {
     	serviceRespo.addResponsable(R);
@@ -116,10 +129,17 @@ public class AdminControler {
     @PUT
     @Path("/nouvelleSR")
     public ServiceTrensfer nouvelleDRt(ServiceTrensfer SR) {
-    	Servces_SrTransf.addResponsable(SR);
+    	Servces_SrTransf.addServicTransfer(SR);
     	return SR; 	
     }
     
+    @PUT
+    @Path("/modifserviceTransfer")
+    public ServiceTrensfer modifserviceTransfer (ServiceTrensfer SR) {
+    Servces_SrTransf.UpdateServicTransfer(SR);
+    return SR; 
+    }
+
     
 
 }

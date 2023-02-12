@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import Data.Database;
+import _classes.Responsable;
 import _classes.ServiceTrensfer;
 
 
@@ -19,13 +20,28 @@ public class Servces_SrTransf {
 		return new ArrayList<ServiceTrensfer>(serviceTR.values());
 	}
 	
-	public static  ServiceTrensfer addResponsable(ServiceTrensfer SR){
+	public static  ServiceTrensfer addServicTransfer(ServiceTrensfer SR){
 		
 		SR.setId(serviceTR.size()+1);
 		SR.setResponsable(serviceRespo.getRespo(SR.getResponsable().getId()));
 		serviceTR.put(SR.getId(),SR);
 	        return SR;
 	}
+	
+	public static ServiceTrensfer UpdateServicTransfer(ServiceTrensfer SR) {
+		if(SR.getId() <=0) {
+		return null;
+		}
+		SR.setResponsable(serviceRespo.getRespo(SR.getResponsable().getId()));
+		serviceTR.put(SR.getId(),SR);
+		System.out.println("Modifier");
+		return SR;
+	}
+	
+	public static ServiceTrensfer getSR(long id) {
+		return serviceTR.get(id);
+	}
+
 	
 
 }
