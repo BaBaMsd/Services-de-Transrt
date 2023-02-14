@@ -6,6 +6,7 @@ import java.util.Map;
 import _classes.Client;
 import _classes.Responsable;
 import _classes.ServiceTrensfer;
+import _classes.Transfer;
 import _classes.Compte;
 
 
@@ -14,6 +15,10 @@ public class Database {
 	private static Map<Long, Responsable> responsable = new HashMap<>();
 	private static Map<Long, ServiceTrensfer> servicetransfer = new HashMap<>();
 	private static Map<Long, Compte> compte = new HashMap<>();
+	
+	private static Map<Integer, String> cnxR = new HashMap<>();
+	
+	private static Map<Long, Transfer> memoireT = new HashMap<>();
 	
 	public static Map<Long, Compte> getCompte() {
 		return compte;
@@ -30,6 +35,14 @@ public class Database {
 	}
 	public static Map<Long, ServiceTrensfer> getServicetransfer() {
 		return servicetransfer;
+	}
+
+	public static Map<Long, Transfer> getMemoireT() {
+		return memoireT;
+	}
+
+	public static Map<Integer, String> getCnxR() {
+		return cnxR;
 	}
 
 }

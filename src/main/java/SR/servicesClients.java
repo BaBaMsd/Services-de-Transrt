@@ -27,25 +27,26 @@ public class servicesClients {
 		return cli.get(id);
 	}
 	
-	public static  Client addClient(Client C){
+	public static  String addClient(Client C){
         C.setId(cli.size()+1);
 	        cli.put(C.getId(),C);
-	        return C;
+	        return C.getNom()+" a ete ajouter avec succes";
 	}
 	
-	public static Client updateClient(Client C) {
+	public static String updateClient(Client C) {
 		if(C.getId() <= 0) {
 			return null;
 		}
 		cli.put(C.getId(),C);
 		System.out.println("Updated");
-		return C;
+		return C.getNom()+" a ete modifierer avec succes";
 		
 	}
 	
-	public static Client supClient(long id) {
+	public static String supClient(long id) {
 		System.out.println("removed");
-		return cli.remove(id);
+		cli.remove(id);
+		return "supprimer avec succes";
 	}
 	
 	

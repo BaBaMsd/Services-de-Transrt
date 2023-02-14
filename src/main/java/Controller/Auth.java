@@ -67,6 +67,7 @@ public class Auth {
 		HttpSession session = req.getSession();
 		if(login.equals(Admin.getLogindf()) && password.equals(Admin.getPassdf())) {
 			session.setAttribute("adminSession",login);
+			
 			return "HEllo Admin";
 		}
 		else if(verifierespo(login,password)>=0){	
@@ -76,6 +77,7 @@ public class Auth {
 		}
 		else if(verifierclient(login,password)>=0){ 
 			session.setAttribute("clientSession",login);
+			
 			return "Hello Client : "+login;
 		}
 

@@ -9,7 +9,9 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Map;
 
+import Data.Database;
 import _classes.Admin;
 import _classes.Client;
 import _classes.Responsable;
@@ -18,6 +20,8 @@ public class ts extends HttpServlet {
 	
 	serviceRespo rs = new serviceRespo();
 	servicesClients sc = new servicesClients();
+	
+	private static Map<Integer, String> cnx = Database.getCnxR();
 	
 	private int verifierespo( String login,String password){
 		  ArrayList<Responsable> listRespo = rs.verifrespo();
@@ -78,6 +82,8 @@ public class ts extends HttpServlet {
 		}
 		else if(verifierespo(lg,pd)>=0){	
 			session.setAttribute("responsableSession",lg);
+			
+			
             out.println("<H1>Bienvenue Responsable</H1>");
 			
 		}else if(verifierclient(lg,pd)>=0){ 

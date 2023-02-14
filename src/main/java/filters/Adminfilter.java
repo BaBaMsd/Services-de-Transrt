@@ -24,8 +24,7 @@ public class Adminfilter extends HttpFilter implements Filter {
 
 	        HttpSession session = httpReq.getSession();
 	        if (session.getAttribute("adminSession")!=null)
-	        {
-	          
+	        {	          
 	            chain.doFilter(request, response);
 
 	        }

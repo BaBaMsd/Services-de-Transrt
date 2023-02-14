@@ -1,26 +1,23 @@
 package Controller;
 
-//importer_les_package_et_bibliotheque_necessite
-
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.PUT;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+
+//importer_les_package_et_bibliotheque_necessite
 import jakarta.ws.rs.*;
 
 import java.util.List;
 
 import SR.Servces_SrTransf;
+import SR.ServiceCompte;
 import SR.serviceRespo;
 import SR.servicesClients;
 import _classes.Admin;
 import _classes.Client;
+import _classes.Compte;
 import _classes.Responsable;
 import _classes.ServiceTrensfer;
-import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Context;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
 
 //Definer_les_url_des_services_admin
 
@@ -113,7 +110,7 @@ public class AdminControler {
     
     @DELETE
 	@Path("/supclient")
-	public Client supClient(@QueryParam("id") long id){
+	public String supClient(@QueryParam("id") long id){
 		return servicesClients.supClient(id);
 	}
     
@@ -139,6 +136,20 @@ public class AdminControler {
     Servces_SrTransf.UpdateServicTransfer(SR);
     return SR; 
     }
+    
+    @DELETE
+   	@Path("/deleteCompte")
+   	public Compte deleteCompte(@QueryParam("id") long id){
+   		return ServiceCompte.deleteCompte(id);
+   	}
+        
+       @PUT 
+       @Path("/addCompte")
+       public Compte ajouterCompte( Compte c) {
+       	ServiceCompte.addCompte(c);
+       	return c ;
+     }
+       
 
     
 
