@@ -32,8 +32,6 @@ public class RespoController {
      }
 	
 	
-	
-	
 	@GET
 	@Path("/ListTr")
 	public List<Transfer> ListTr(){
@@ -45,12 +43,13 @@ public class RespoController {
 	public String anullé(@PathParam("id") long id) {
 		return ServiceCompte.anullé(id);	
 	}
+	
     @GET
 	@Path("/comptes")
 	public List<Compte> getComptes(){
 		return ServiceCompte.ListComptes();
 	}
-    
+  
    
    
     

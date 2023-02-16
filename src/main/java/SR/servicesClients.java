@@ -28,6 +28,7 @@ public class servicesClients {
 	}
 	
 	public static  String addClient(Client C){
+		
         C.setId(cli.size()+1);
 	        cli.put(C.getId(),C);
 	        return C.getNom()+" a ete ajouter avec succes";

@@ -91,7 +91,7 @@ public class ServiceCompte {
 		mem.put(t.getId(), t);
 		debit.setBalance(debit.getBalance() + montant);
 		credit.setBalance(credit.getBalance() - montant);
-		return credit.getClient().getNom() + "a transferer" + montant + "de son Compte" + credit.getId() + "vers" + debit.getId();
+		return credit.getClient().getNom() + " a transferer " + montant + " de son Compte " + credit.getId() + " vers " + debit.getId();
 	}
 	
 	public static ArrayList<Transfer> ListTr(){

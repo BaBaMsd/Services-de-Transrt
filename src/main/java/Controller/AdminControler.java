@@ -28,14 +28,20 @@ public class AdminControler {
 	@Context HttpServletRequest req;
 	
 	//Modifier_le_password d'Admin
-    @PUT
-    @Path("/pass")
+    @GET
+    @Path("/nouvellepass/{password}")
     //@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public String changepassword(@QueryParam("password") String password){
+    public String changepassword(@PathParam("password") String password){
         Admin.setPassdf(password);
         System.out.println("change mot de pass");
-        return "password changed ";
+        return "Mot de passe Change ";
     }
+    
+    @GET
+	@Path("/comptes")
+	public List<Compte> getComptes(){
+		return ServiceCompte.ListComptes();
+	}
     
   //Sevice_de_connexion
   	@GET
